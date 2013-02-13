@@ -40,4 +40,4 @@ foreach my $i (@ids){
 }
 
 system("perl $ENV{CVS_DIR}/remap_gff_between_releases.pl -species elegans -gff /tmp/andersonsubset.195.gff -release1 195 -release2 $toVersion -output /tmp/andersonsubset.${toVersion}.gff")&&die(@!);
-system("perl $ENV{CVS_DIR}/get_flanking_sequences_simple.pl -flank 50 < /tmp/andersonsubset.${toVersion}.gff > /tmp/anderson_out.txt")&&die(@!);
+system("perl $ENV{CVS_DIR}/get_flanking_sequences_simple.pl -flank 50 ~wormpub/DATABASES/current_DB/SEQUENCES/elegans.genome.fa< /tmp/andersonsubset.${toVersion}.gff > /tmp/anderson_out.txt")&&die(@!);
