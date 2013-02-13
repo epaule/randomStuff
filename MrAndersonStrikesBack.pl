@@ -36,7 +36,7 @@ close INF;
 
 # create a tmp GFF2 file
 foreach my $i (@ids){
-  system("grep $i $originalGFF >>! /tmp/andersonsubset.195.gff")%%die(@!);   
+  system("grep $i $originalGFF >>! /tmp/andersonsubset.195.gff")&&die(@!);   
 }
 
 system("$ENV{CVS_DIR}/scripts/remap_gff_between_releases.pl -species elegans -gff /tmp/andersonsubset.195.gff -release1 195 -release2 $toVersion -outfile /tmp/andersonsubset.${toVersion}.gff")&&die(@!);
