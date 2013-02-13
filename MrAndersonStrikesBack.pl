@@ -10,7 +10,6 @@ my $idMappingFile='/nfs/wormpub/DATABASES/geneace/WGS/ANDERSEN/ids.txt';
 my $originalGFF  ='/nfs/wormpub/DATABASES/geneace/WGS/ANDERSEN/andersen_data.ws195_collapsed';
 
 GetOptions(
-    'wnvar2anderson' => \$idMappingFile,
     'toVersion=s'    => \$toVersion,
     'varIDs=s'       => \$varIDs,
 )||die(@!);
