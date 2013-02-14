@@ -41,3 +41,22 @@ foreach my $i (@ids){
 
 system("perl $ENV{CVS_DIR}/remap_gff_between_releases.pl -species elegans -gff /tmp/andersonsubset.195.gff -release1 195 -release2 $toVersion -output /tmp/andersonsubset.${toVersion}.gff")&&die(@!);
 system("perl $ENV{CVS_DIR}/get_flanking_sequences_simple.pl -flank 50 ~wormpub/DATABASES/current_DB/SEQUENCES/elegans.genome.fa< /tmp/andersonsubset.${toVersion}.gff > /tmp/anderson_out.txt")&&die(@!);
+
+# convert that thing into ACE
+my %anderson2var = reverse %var2anderson;
+open INF, '/tmp/anderson_out.txt';
+while (<INF>){
+    my @F= split;
+    my $aID = $1 if  /id \"(\S+)\"/;
+    my $vID = $anderson2var{$aID};
+    my $lFlank = $1 if /LeftFlank \"(\S+)\"/;
+    my $rFlank = $1 if /RightFlank \"(\S+)\"/;
+    my $seq= $F[0];
+    print <<HERE;
+Variation : $vID
+Sequence $seq
+Flanks $lFlank $rFlank
+Mapping_target $seq
+
+HERE
+}
