@@ -60,3 +60,4 @@ Mapping_target $seq
 
 HERE
 }
+map {unlink $_ if -e $_}('/tmp/andersonsubset.195.gff',"/tmp/andersonsubset.${toVersion}.gff",'tmp/anderson_out.txt');
