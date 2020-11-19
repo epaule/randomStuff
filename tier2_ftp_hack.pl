@@ -27,8 +27,8 @@ my $targetdir = ($test)
 
 $log->write_to("WRITING TO $targetdir\n");
 
-
-foreach my $wb (values %{$wormbase->species_accessors}) {
+my %species = ($wormbase->species_accessors);
+foreach my $wb (values %species) {
     next if $wb->species eq 'elegans';
 
     my $gspecies = $wb->full_name('-g_species'=>1);
