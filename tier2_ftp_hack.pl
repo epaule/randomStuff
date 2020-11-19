@@ -36,7 +36,7 @@ foreach my $wb (values %species) {
 
     my $in_prefix = $wb->reports;
     my $prefix = "$targetdir/species/$gspecies/$bioproj/annotation";
-    my $out_prefix = "$tprefix/$gspecies.${bioproj}.${WS_version_name}.";
+    my $out_prefix = "$prefix/$gspecies.${bioproj}.${WS_version_name}.";
     
     `mkdir -p $prefix` unless -e $prefix;
     
