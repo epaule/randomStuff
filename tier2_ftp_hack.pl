@@ -35,9 +35,10 @@ foreach my $wb (values %species) {
     my $bioproj = $wb->ncbi_bioproject;
 
     my $in_prefix = $wb->reports;
-    my $out_prefix = "$targetdir/species/$gspecies/$bioproj/annotation/$gspecies.${bioproj}.${WS_version_name}.";
+    my $prefix = "$targetdir/species/$gspecies/$bioproj/annotation";
+    my $out_prefix = "$tprefix/$gspecies.${bioproj}.${WS_version_name}.";
     
-    `mkdir -p $outprefix` unless -e $outprefix;
+    `mkdir -p $prefix` unless -e $prefix;
     
     my @files = ('functional_descriptions.txt','orthologs.txt','protein_domains.csv','geneIDs.txt','geneOtherIDs.txt','alaska_ids.tsv','uniprot_papers.txt');
 
