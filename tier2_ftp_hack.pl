@@ -40,7 +40,7 @@ foreach my $wb (values %species) {
     
     `mkdir -p $prefix` unless -e $prefix;
     
-    my @files = ('functional_descriptions.txt','orthologs.txt','protein_domains.csv','geneIDs.txt','geneOtherIDs.txt','alaska_ids.tsv','uniprot_papers.txt');
+    my @files = ('functional_descriptions.txt','orthologs.txt','protein_domains.csv','geneIDs.txt','geneOtherIDs.txt','alaska_ids.tsv','uniprot_papers.txt','gene_product_info.gpi');
 
     foreach my $file (@files) {  
       my $in_file = $in_prefix . "/" . $wb->species .".$file";
