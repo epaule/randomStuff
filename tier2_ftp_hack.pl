@@ -48,7 +48,7 @@ foreach my $wb (values %species) {
       
       if (-e $in_file) {
         $log->write_to("WARNING: $in_file is empty\n") unless -s $in_file;
-        $wormbase->run_command("cat $in_file | gzip -n -9 -c >! $out_file", $log);
+        $wormbase->run_command("bash -c \"cat $in_file | gzip -n -9 -c >! $out_file\"", $log);
       } else {
         $log->write_to("WARNING: can't find $in_file\n");
       }
