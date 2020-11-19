@@ -34,7 +34,7 @@ foreach my $wb (values %species) {
     my $gspecies = $wb->full_name('-g_species'=>1);
     my $bioproj = $wb->ncbi_bioproject;
 
-    my $in_prefix = $wb->reports . "/" . $wb->species . ".";
+    my $in_prefix = $wb->reports . "/" . $wb->species;
     my $out_prefix = "$targetdir/species/$gspecies/$bioproj/annotation/$gspecies.${bioproj}.${WS_version_name}.";
 
     my @files = ('functional_descriptions.txt','orthologs.txt','protein_domains.csv','geneIDs.txt','geneOtherIDs.txt','alaska_ids.tsv','uniprot_papers.txt');
